@@ -2,7 +2,7 @@ package org.iys.eventdriven.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.iys.eventdriven.dto.CreateOrderRequest;
+import org.iys.eventdriven.dto.request.CreateOrderRequest;
 import org.iys.eventdriven.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

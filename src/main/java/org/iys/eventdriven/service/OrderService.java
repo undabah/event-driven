@@ -1,8 +1,8 @@
 package org.iys.eventdriven.service;
 
 import lombok.RequiredArgsConstructor;
-import org.iys.eventdriven.dto.CreateOrderRequest;
-import org.iys.eventdriven.dto.OrderCreatedEvent;
+import org.iys.eventdriven.dto.request.CreateOrderRequest;
+import org.iys.eventdriven.dto.event.OrderCreatedEvent;
 import org.iys.eventdriven.entity.OrderEntity;
 import org.iys.eventdriven.repository.OrderRepository;
 import org.springframework.pulsar.core.PulsarTemplate;
@@ -38,7 +38,7 @@ public class OrderService {
 
     OrderCreatedEvent event = new OrderCreatedEvent(
             "v1", UUID.randomUUID(), Instant.now(),
-            entity.getId(), entity.getCustomerId(), entity.getQuantity(), entity.getSku()
+            entity.getId(), entity.getCustomerId(), entity.getQuantity(), entity.getSku(), entity.getStatus()
     );
 
     pulsarTemplate.newMessage(event)

@@ -20,4 +20,4 @@ app:
     topic:
       order-events: persistent://public/default/order-events
       order-events-dlt: persistent://public/default/order-events-dlt
-
+      order-processed-events: persistent://public/default/order-processed-events

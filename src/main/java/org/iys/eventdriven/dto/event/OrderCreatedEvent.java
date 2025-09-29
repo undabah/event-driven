@@ -1,4 +1,4 @@
-package org.iys.eventdriven.dto;
+package org.iys.eventdriven.dto.event;
 
 import jakarta.validation.constraints.NotNull;
 
@@ -12,5 +12,6 @@ public record OrderCreatedEvent(
         @NotNull String orderId,
         @NotNull String customerId,
         @NotNull Integer quantity,
-        @NotNull String sku
+        @NotNull String sku,
+        @NotNull String status
 ) {}

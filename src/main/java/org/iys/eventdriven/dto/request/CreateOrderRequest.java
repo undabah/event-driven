@@ -1,4 +1,4 @@
-package org.iys.eventdriven.dto;
+package org.iys.eventdriven.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 
