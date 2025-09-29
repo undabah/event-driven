@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  pulsar:
+    image: apachepulsar/pulsar:3.2.0
+    container_name: pulsar
+    command: ["/pulsar/bin/pulsar", "standalone", "-nfw"]  # functions worker kapalı (hafif)
+    ports:
+      - "6650:6650"   # broker
+      - "8081:8080"   # admin REST
+    volumes:
+      - pulsar-data:/pulsar/data
+      - pulsar-conf:/pulsar/conf
+    # Apple Silicon'da sorun yaşarsan aşağıdakini aç:
+    # platform: linux/amd64
+
+volumes:
+  pulsar-data:
+  pulsar-conf:
