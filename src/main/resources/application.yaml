@@ -18,6 +18,5 @@ spring:
 app:
   pulsar:
     topic:
-      order-events: persistent://public/default/order-events
-      order-events-dlt: persistent://public/default/order-events-dlt
-      order-processed-events: persistent://public/default/order-processed-events
+      job-command-job-a: persistent://public/default/job-command-JOB_A
+      job-completed: persistent://public/default/job-completed
