@@ -15,10 +15,8 @@ public class WorkflowStateService {
 
   public boolean tryStartWorkflow(String workflowId) { /* unique start */ return true; }
   public boolean acceptCompletionEvent(JobCompleted e) {
-    if (jobExecutionRepo.existsByWorkflowIdAndStepAndStatus(e.workflowId(), e.step(), JobStatus.SUCCESS)) {
-      return false; // bu event daha önce işlenmiş
-    }
-    if (jobExecutionRepo.existsByWorkflowIdAndStepAndStatus(e.workflowId(), e.step(), JobStatus.FAILED)) {
+    if (jobExecutionRepo.existsByWorkflowIdAndStepAndStatus(e.workflowId(), e.step(), JobStatus.SUCCESS) ||
+            (jobExecutionRepo.existsByWorkflowIdAndStepAndStatus(e.workflowId(), e.step(), JobStatus.FAILED))) {
       return false;
     }
 
